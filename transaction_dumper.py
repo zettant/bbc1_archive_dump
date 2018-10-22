@@ -40,7 +40,7 @@ if __name__ == '__main__':
     num_transactions = 0
     invalid_transactions = 0
     for timestamp in sorted(objects.keys()):
-        user_id_str, txdat = objects[timestamp]
+        transaction_id_str, txdat = objects[timestamp]
         txobj = bbclib.BBcTransaction(deserialize=txdat)
         if start_from is not None and txobj.timestamp < start_from:
             continue
