@@ -55,7 +55,10 @@ if __name__ == '__main__':
             print("TransactionID:", txobj.transaction_id.hex())
             print("Previous Transaction ID:", txobj.relations[0].pointers[0].transaction_id.hex())
         body_dat = txobj.relations[0].asset.asset_body.decode()
-        print(json.loads(body_dat))
+        try:
+            print(json.loads(body_dat))
+        except:
+            print(body_dat)
 
         verify_result = True
         if txobj.signatures[0].verify(txobj.transaction_id) == 0:
